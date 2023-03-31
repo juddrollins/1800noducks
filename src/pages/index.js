@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import news from "../images/news.jpg";
+import news from "../images/news.jpeg";
 import duck from "../images/duck.jpeg";
 
 import { Container, Card, Row, Text, Grid } from "@nextui-org/react";
