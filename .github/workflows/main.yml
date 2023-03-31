@@ -15,6 +15,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2
+        with: 
+            node-version: '19.x'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build Next.js project
+        run: npm run build
         
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -24,4 +35,4 @@ jobs:
           role-session-name: session
           
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./out/ s3://1800noducks.net --delete
+        run: aws s3 sync out/ s3://1800noducks.net --delete
