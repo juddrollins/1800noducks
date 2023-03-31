@@ -1,0 +1,24 @@
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches: [ "main" ]
+  
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-2
+          role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
+          role-session-name: session
+          
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync ./public/ s3://BUCKET_NAME --delete
