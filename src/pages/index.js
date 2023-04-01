@@ -13,8 +13,7 @@ export default function Home() {
           <Card.Body>
             <Row justify="center" align="center">
               <Text h6 size={30} css={{ m: 0 }}>
-                Come out and join us! NO DUCKS! 365 days a year! You don't even
-                need to bring a gun!
+                Elizabeth is so pretty!
               </Text>
             </Row>
           </Card.Body>
